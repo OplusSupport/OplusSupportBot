@@ -1,0 +1,39 @@
+services:
+  - type: worker
+    name: oplus-support-bot
+    env: python
+    plan: starter
+    region: oregon
+    branch: main
+    buildCommand: pip install -r requirements.txt
+    startCommand: python main.py
+    autoDeploy: true
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.12.7
+      - key: BOT_TOKEN
+        sync: false
+      - key: ADMIN_IDS
+        sync: false
+      - key: BOT_NAME
+        value: "O+ SUPPORT"
+      - key: OWNER_USERNAME
+        value: "@the_hitman_show"
+      - key: WEBSITE_URL
+        value: "https://www.opluspro.net"
+      - key: MAX_WARNINGS
+        value: "3"
+      - key: ANTI_SPAM_MSG_LIMIT
+        value: "6"
+      - key: ANTI_SPAM_TIME_WINDOW
+        value: "8"
+      - key: ANTI_SPAM_MUTE_SECONDS
+        value: "300"
+      - key: DELETE_INVITE_LINKS
+        value: "true"
+      - key: ENABLE_WELCOME_MESSAGE
+        value: "true"
+      - key: ENABLE_ANTI_SPAM
+        value: "true"
+      - key: LOG_LEVEL
+        value: "INFO"
